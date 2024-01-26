@@ -7,11 +7,11 @@ services:
       - "27017:27017"
 
   rabbitmq:
-    image: rabbitmq:latest
+    image: rabbitmq:3-management
     container_name: rabbitmq
     environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_USER: car
+      RABBITMQ_DEFAULT_PASS: car
     ports:
       - "5672:5672"
       - "15672:15672"
