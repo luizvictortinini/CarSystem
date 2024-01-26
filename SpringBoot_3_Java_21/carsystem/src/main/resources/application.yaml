@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/CarSystem
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: car
+    password: car
+
+

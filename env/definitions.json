@@ -1,0 +1,76 @@
+{
+    "exchanges": [
+      {
+        "name": "car_system",
+        "type": "topic"
+      },
+      {
+        "name": "car_system_dlq",
+        "type": "topic"
+      }
+    ],
+    "queues": [
+      {
+        "name": "create",
+        "durable": true,
+        "auto_delete": false
+      },
+      {
+        "name": "update",
+        "durable": true,
+        "auto_delete": false
+      },
+      {
+        "name": "delete",
+        "durable": true,
+        "auto_delete": false
+      },
+      {
+        "name": "create_dlq",
+        "durable": true,
+        "auto_delete": false
+      },
+      {
+        "name": "update_dlq",
+        "durable": true,
+        "auto_delete": false
+      },
+      {
+        "name": "delete_dlq",
+        "durable": true,
+        "auto_delete": false
+      }
+    ],
+    "bindings": [
+      {
+        "source": "car_system",
+        "destination": "create",
+        "routing_key": "carsystem.create"
+      },
+      {
+        "source": "car_system",
+        "destination": "update",
+        "routing_key": "carsystem.update"
+      },
+      {
+        "source": "car_system",
+        "destination": "delete",
+        "routing_key": "carsystem.delete"
+      },
+      {
+        "source": "car_system_dlq",
+        "destination": "create_dlq",
+        "routing_key": "carsystem.create_dlq"
+      },
+      {
+        "source": "car_system_dlq",
+        "destination": "update_dlq",
+        "routing_key": "carsystem.update_dlq"
+      },
+      {
+        "source": "car_system_dlq",
+        "destination": "delete_dlq",
+        "routing_key": "carsystem.delete_dlq"
+      }
+    ]
+  }
