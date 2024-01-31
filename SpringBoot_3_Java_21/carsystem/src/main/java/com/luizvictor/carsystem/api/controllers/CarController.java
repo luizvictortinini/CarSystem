@@ -1,6 +1,6 @@
 package com.luizvictor.carsystem.api.controllers;
 
-import com.luizvictor.carsystem.api.services.CarService;
+import com.luizvictor.carsystem.api.services.CarApiService;
 import com.luizvictor.carsystem.communs.vo.CarVo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +15,9 @@ import java.util.List;
 public class CarController {
 
 
-    private final CarService carService;
+    private final CarApiService carService;
 
-    public CarController(final CarService carService) {
+    public CarController(final CarApiService carService) {
         this.carService = carService;
     }
 
@@ -36,9 +36,8 @@ public class CarController {
 
     @GetMapping("/brand/{brand}")
     public ResponseEntity<List<CarVo>> getCarsByBrand(final String brand) {
-        final List<CarVo> cars = carService.getAllCars();
+        final List<CarVo> cars = carService.getCarByBrand(brand);
         return ResponseEntity.ok(cars);
     }
-
 
 }

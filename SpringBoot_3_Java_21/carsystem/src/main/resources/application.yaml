@@ -11,4 +11,13 @@ spring:
     username: car
     password: car
 
+queues:
+  exchange: car-system
+  exchangeDlq: car-system-dlq
+  create: create
+  update: update
+  delete: delete
+  dlqSuffix: -dlq
+  routingKey: car-system.
+
 

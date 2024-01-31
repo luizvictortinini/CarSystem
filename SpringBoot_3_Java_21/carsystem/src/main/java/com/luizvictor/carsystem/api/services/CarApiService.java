@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CarService {
+public class CarApiService {
 
     private final CarRepository carRepository;
     private final CarMapper carMapper;
 
-    public CarService(final CarRepository carRepository, final CarMapper carMapper) {
+    public CarApiService(final CarRepository carRepository, final CarMapper carMapper) {
         this.carRepository = carRepository;
         this.carMapper = carMapper;
     }
@@ -25,7 +25,11 @@ public class CarService {
     }
 
     public CarVo getCarByPlate(final String plate) {
-        return null;
+        return carMapper.carToCarVo(carRepository.findByPlate(plate));
+    }
+
+    public List<CarVo> getCarByBrand(final String brand) {
+        return carMapper.carToCarVo(carRepository.findByBrand(brand));
     }
 
 }

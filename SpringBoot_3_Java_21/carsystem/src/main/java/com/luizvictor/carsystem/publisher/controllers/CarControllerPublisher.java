@@ -2,12 +2,9 @@ package com.luizvictor.carsystem.publisher.controllers;
 
 import com.luizvictor.carsystem.communs.vo.CarVo;
 import com.luizvictor.carsystem.publisher.services.CarPublisherService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("publisher/cars/batch")
@@ -20,8 +17,13 @@ public class CarControllerPublisher {
     }
 
     @PostMapping("/")
-    public void post(@RequestBody final List<CarVo> cars) {
+    public void post(@RequestBody final Set<CarVo> cars) {
         carPublisherService.publishCars(cars);
+    }
+
+    @DeleteMapping("/{plates}")
+    public void delete(@RequestParam final Set<String> plates) {
+        carPublisherService.deleteCars(plates);
     }
 
 
