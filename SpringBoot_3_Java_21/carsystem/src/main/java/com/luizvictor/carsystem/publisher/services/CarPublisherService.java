@@ -29,6 +29,4 @@ public class CarPublisherService {
     public void deleteCars(final Set<String> plates) {
         rabbitMQPublisher.sendMessageDelete(plates);
     }
-
-
 }
